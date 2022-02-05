@@ -189,5 +189,5 @@
 //T7:
 //* Rebalanced Sinistyte's stats, Shield capacity buffed to [350,350] from [300,300], shield regen nerfed to [11,11] from [12,12], energy regen buffed to [55,55] from [45,45], mass was nerfed to 300 from 350, rotation buffed to [80,80] from [70,70], acceleration buffed to [100,100] from [80,80], redid the main pulse damage from [170,170] to a pulse that does 50 damage at a firerate of 3, laser speed was buffed to [210,210] and recoil was removed
 //There was a remodel to fit the changed stats, making it a little smaller//
-// Version 1.1.1 
+// Version 1.1.0
 // In development 
