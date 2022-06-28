@@ -61,7 +61,7 @@ var crystals_button = {
 
 var god_button = {
   id: "admin",
-  position: [],
+  position: [0,0,0,0],
   clickable: true,
   shortcut: "Z",
   visible: true,
