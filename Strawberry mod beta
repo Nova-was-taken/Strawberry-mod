@@ -113,7 +113,8 @@ this.options = {
   asteroids_strength: 1, //how hard rocks 
   friendly_colors: 3, //how many teams
   auto_assign_teams: true, //True or false if you want to have random sorting or not
-  speed_mod: 1.2, //How fast ships are questionmark 
+  speed_mod: 1.2, //How fast ships are questionmark
+  hues: [300,0,200], 
 };
 
 
@@ -287,14 +288,14 @@ this.tick = function (game) {
     for (let ship of game.ships) {
       if (!ship.custom.init) {
         ship.custom.init = true;
-        ship_instructor(ship, "Welcome to weekly GOTN fight commander!", "Zoltar");
-        ship_instructor(ship, "The void entity in this place is very unstable and hostile", "Zoltar", 3);
-        ship_instructor(ship, "A lot of alien have spawned from the void so beware!", "Zoltar", 6);
-        ship_instructor(ship, "Good luck out there commander!", "Zoltar", 9, 3);
+        ship_instructor(ship, "Welcome to weekly GOTN fight commander!", "Kan");
+        ship_instructor(ship, "The void entity in this place is very unstable and hostile", "Kan", 3);
+        ship_instructor(ship, "A lot of alien have spawned from the void so beware!", "Kan", 6);
+        ship_instructor(ship, "Good luck out there commander!", "Kan", 9, 3);
       }
     }
   }
-  if (game.step % 15 === 3600) {
+  if (game.step % 15 === 1800) {
     for (let ship of game.ships) {
       if (!ship.custom.init) {
         ship.custom.init = true;
@@ -304,74 +305,22 @@ this.tick = function (game) {
         ship_instructor(ship, "Good luck out there commander!", "Zoltar", 9, 3);
       }
     }
+  }  
+  if (game.step % 15 === 3600) {
+    for (let ship of game.ships) {
+      if (!ship.custom.init) {
+        ship.custom.init = true;
+        ship_instructor(ship, "Welcome to weekly GOTN fight commander!", "Lucina");
+        ship_instructor(ship, "The void entity in this place is very unstable and hostile", "Lucina", 3);
+        ship_instructor(ship, "A lot of alien have spawned from the void so beware!", "Lucina", 6);
+        ship_instructor(ship, "Good luck out there commander!", "Lucina", 9, 3);
+      }
+    }
   }
 };
 
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// whats up gamer
-// making starblast mod that allows regen near bases
 
-
-
-
-// 100% not going to use this in sahara to get station positions
-// why tho
-// this is just cached version
-// I still cant do any math whatsoever
-
-
-let stations_data, R;
-
-let initStationsData = function (game) {
-    stations_data = game.options.teams.map(team => {
-        let station = team.station;
-        station.maxSize = Math.max(...station.modules.map(modul => [Math.abs(modul.x), Math.abs(modul.y)]).flat(Infinity));
-        // this is just to get the maximum station outbound circle
-        return station;
-    });
-    R = stations_data.length < 2 ? 0 : (5 * Math.sqrt(2) / 2) * game.options.map_size;
-    updateStationsPos();
-}
-
-let updateStationsPos = function () {
-    for (let station of stations_data) Object.assign(station, getStationPos(station, game))
-}
-
-let getStationPos = function (station, game) {
-    let angle = station.phase + game.step / 60 / 3600 % 1 * 2 * Math.PI;
-    return {x: R * Math.cos(angle), y: R * Math.sin(angle)}
-}
-
-// by bh
-let dist2points = function (p1, p2) {
-    return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
-}
-
-// by not bh
-let isNearStation = function (ship, radMult) {
-    let station = stations_data[ship.team], level = 3;
-    if (!station) return false;
-    return dist2points(station, ship) <= station.maxSize * Math.sqrt(2) * (level + 3) * 2.5 * radMult;
-}
-
-let increaseHealth = function(health) {
-    for(let ship of game.ships){
-        if(isNearStation(ship, 2)){
-            ship.set({shield: ship.shield + health});
-        }
-    }
-}
-this.tick = function (game) {
-    initStationsData(game);
-    this.tick = actual_tick;
-    this.tick(game)
-}
-let actual_tick = function (game) {
-    if (game.step % 60 === 0) {
-        updateStationsPos();
-        increaseHealth(69) // nice
-    }
-}
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 var ship_instructor = function (ship, message, character = "Lucina", delay = 0, hide_after = 0) {
