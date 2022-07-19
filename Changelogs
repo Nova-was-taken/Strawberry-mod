@@ -201,9 +201,17 @@
 //Buffed Xenomorph's energy capacity to [120,170] from [100,130], nerfed energy regen to [30,40] from [30,45] 
 //T7s:
 //Buffed Sinistyte's energy capacity to [220,220] from [200,200] buffed energy regen to [60,60] from [55,55] buffed mass to 325 from 300, buffed rotation to [100,100] from [80,80], nerfed the intermost side cannons damage to [10,10] from [30,30] 
-//05/06/2022
-// Version 1.2.0
+//07/18/2022
+// Version 1.5.0
 //T5s:
-//Somnium buff
-//T6s:
-//Xenomorph rework
+//Way to many minor stat changes to list
+//Furystar and Syeclar posistions have been swapped in the ship tree, Syeclar now get's Scorpion and T-fighter for t6s, Furystar gets Marauder and Condor 
+//T6:
+// Also a lot of minor balance changes
+//T7s:
+//Sinistyte is now a lot smaller
+//Gameplay changes
+//Aliens now spawn accross the map from the center and the colors are set to Purple, Red and Blue 
+
+//Balancing in theory is actually good now 
+
