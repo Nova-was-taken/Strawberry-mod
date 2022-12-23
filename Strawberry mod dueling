@@ -189,7 +189,7 @@ var vocabulary = [
   ] ;
 
 this.options = {
-  map_name: "Strawberry v1.1 beta", 
+  map_name: "Strawberry v1.7 beta", 
   root_mode: "",
   ships: adminTools,
   reset_tree: false,
